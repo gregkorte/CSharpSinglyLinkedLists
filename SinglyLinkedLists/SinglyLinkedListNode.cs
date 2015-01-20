@@ -60,5 +60,19 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (this.value == obj.ToString())
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
