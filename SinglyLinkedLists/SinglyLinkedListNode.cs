@@ -63,10 +63,10 @@ namespace SinglyLinkedLists
 
         public override string ToString()
         {
-            return value;
+            return Value;
         }
 
-        public override bool Equals(object obj)
+        public override bool Equals(Object obj)
         {
             if (this.value == obj.ToString())
             {
