@@ -53,17 +53,7 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/system.icomparable.compareto.aspx
         public int CompareTo(Object obj)
         {
-            int first = 0;
-            foreach (char c in this.value)
-            {
-                first += (int)c;
-            }
-            int second = 0;
-            foreach (char c in obj.ToString())
-            {
-                second += (int)c;
-            }
-            return first - second;
+            return this.value.CompareTo(obj.ToString());
         }
 
         public bool IsLast()
