@@ -99,9 +99,22 @@ namespace SinglyLinkedLists
         // HINT 1: You can extract this functionality (finding the last item in the list) from a method you've already written!
         // HINT 2: I suggest writing a private helper method LastNode()
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
+
         public string Last()
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode node = this.firstNode;
+            if (node == null)
+            {
+                return null;
+            }
+            while (true)
+            {
+                if (node.Next == null)
+                {
+                    return node.Value;
+                }
+                node = node.Next;
+            }
         }
 
         public void Remove(string value)

@@ -58,7 +58,7 @@ namespace SinglyLinkedLists
 
         public bool IsLast()
         {
-            if (this.Next == null)//Only need (this.Next == null)
+            if (this.Next == null) //Only need (this.Next == null)
             {
                 return true;
             }
@@ -70,11 +70,14 @@ namespace SinglyLinkedLists
             return Value;
         }
 
-        public override bool Equals(Object obj)
+        public override bool Equals(object obj)
         {
+            //Also: SinglyLinkedListNode other = obj as SinglyLinkedListNode
+            //      return other != null && this.Value.Equals(other.Value);
+            //Or: 
             if (this.GetType() == obj.GetType()){
 
-                if (this.value == obj.ToString())
+                if (this.Value == obj.ToString())
                 {
                     return true;
                 }
