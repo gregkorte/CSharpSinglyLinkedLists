@@ -131,5 +131,14 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
         }
+        public override string ToString()
+        {
+            SinglyLinkedListNode node = firstNode;
+            if (node == null)
+            {
+                return "{ }";
+            }
+            return "{ \"" + node.ToString() + "\" }";
+        }
     }
 }
