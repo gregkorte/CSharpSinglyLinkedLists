@@ -39,7 +39,7 @@ namespace SinglyLinkedLists
         public void AddLast(string value)
         {
             if (firstNode == null)
-            { 
+            {
                 firstNode = new SinglyLinkedListNode(value);
             }
             SinglyLinkedListNode node = this.firstNode;
@@ -69,7 +69,7 @@ namespace SinglyLinkedLists
             }
             for (int i = 0; i < index + 1; i++)
             {
-                node = node.Next;  
+                node = node.Next;
             }
             return node.Value;
         }
@@ -138,7 +138,21 @@ namespace SinglyLinkedLists
             {
                 return "{ }";
             }
-            return "{ \"" + node.ToString() + "\" }";
+            StringBuilder builder = new StringBuilder("{ \"");
+            while (true)
+            {
+                builder.Append(node.ToString());
+                if (node.Next == null)
+                {
+                    return node.Value;
+                    {
+                        builder.Append("\", \"");
+                        node = node.Next;
+                    }
+                }
+                builder.Append("\" }");
+                return builder.ToString();
+            }
         }
     }
 }
