@@ -129,7 +129,13 @@ namespace SinglyLinkedLists
 
         public string[] ToArray()
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode node = firstNode;
+            if (node == null)
+            {
+                return new string[]{};
+            }
+            return new string[] { node.Value };
+            
         }
         public override string ToString()
         {
@@ -144,15 +150,13 @@ namespace SinglyLinkedLists
                 builder.Append(node.ToString());
                 if (node.Next == null)
                 {
-                    return node.Value;
-                    {
-                        builder.Append("\", \"");
-                        node = node.Next;
-                    }
+                    break;
                 }
-                builder.Append("\" }");
-                return builder.ToString();
+                builder.Append("\", \"");
+                    node = node.Next;
             }
+            builder.Append("\" }");
+            return builder.ToString();
         }
     }
 }
