@@ -41,17 +41,18 @@ namespace SinglyLinkedLists
             if (firstNode == null)
             {
                 firstNode = new SinglyLinkedListNode(value);
+                return;
             }
             SinglyLinkedListNode node = this.firstNode;
             while (true)
             {
                 if (node.Next == null)
                 {
+                    node.Next = new SinglyLinkedListNode(value);
                     break;
                 }
                 node = node.Next;
             }
-            node.Next = new SinglyLinkedListNode(value);
         }
 
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
@@ -67,7 +68,7 @@ namespace SinglyLinkedLists
             {
                 throw new ArgumentOutOfRangeException();
             }
-            for (int i = 0; i < index + 1; i++)
+            for (int i = 0; i < index; i++)
             {
                 node = node.Next;
             }
@@ -132,11 +133,21 @@ namespace SinglyLinkedLists
             SinglyLinkedListNode node = firstNode;
             if (node == null)
             {
-                return new string[]{};
+                return new string[] { };
             }
-            return new string[] { node.Value };
-            
+            List<string> list = new List<string> { };
+            while (true)
+            {
+                list.Add(node.Value);
+                if (node.Next == null)
+                {
+                    return new string[] { node.Value };
+                }
+                node = node.Next;
+            }
+            return list.ToArray<string>();
         }
+            
         public override string ToString()
         {
             SinglyLinkedListNode node = firstNode;
