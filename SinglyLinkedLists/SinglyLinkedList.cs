@@ -28,12 +28,34 @@ namespace SinglyLinkedLists
 
         public void AddAfter(string existingValue, string value)
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode node = firstNode;
+            while (true)
+            {
+                if (node == null)
+                {
+                    throw new ArgumentNullException();
+                }
+                if (node.Value == existingValue)
+                {
+                    var openNode = node.Next;
+                    node.Next = new SinglyLinkedListNode(value);
+                    node.Next.Next = openNode;
+                    return;
+                }
+                node = node.Next;
+            }
         }
 
         public void AddFirst(string value)
         {
-            throw new NotImplementedException();
+            if (firstNode == null)
+            {
+                firstNode = new SinglyLinkedListNode(value);
+                return;
+            }
+                SinglyLinkedListNode node = new SinglyLinkedListNode(value);
+                node.Next = firstNode;
+                firstNode = node;
         }
 
         public void AddLast(string value)
@@ -141,7 +163,7 @@ namespace SinglyLinkedLists
                 list.Add(node.Value);
                 if (node.Next == null)
                 {
-                    return new string[] { node.Value };
+                    break;
                 }
                 node = node.Next;
             }
